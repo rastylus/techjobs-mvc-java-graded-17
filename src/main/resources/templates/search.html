@@ -37,6 +37,8 @@
   <hr />
 
   <!-- TODO #4 - Loop over the search results to display all job fields. -->
+<!--    <p th:text="${searchTerm + searchType}"></p>-->
+    <p th:replace="~{fragments :: list-jobs}"></p>
 
 </div>
 
