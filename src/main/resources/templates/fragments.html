@@ -41,20 +41,27 @@
             </tr>
             <tr>
                 <td class="labels">Employer</td>
-                <td th:text="${job.employer}"></td>
+                <td><a th:href="@{'/list/jobs'(column=employer, value= ${job.employer})}"
+                       th:text="${job.employer}"></a></td>
             </tr>
             <tr>
                 <td class="labels">Location</td>
-                <td th:text="${job.location}"></td>
+                <td><a th:href="@{'/list/jobs'(column=location, value= ${job.location})}"
+                       th:text="${job.location}"></a></td>
             </tr>
             <tr>
                 <td class="labels">Position Type</td>
-                <td th:text="${job.positionType}"></td>
+                <td><a
+                        th:href="@{'/list/jobs'(column=positionType, value= ${job.positionType})}"
+                       th:text="${job.positionType}"></a></td>
             </tr>
             <tr>
                 <td class="labels">Core Competency</td>
-                <td th:text="${job.coreCompetency}"></td>
+                <td><a
+                        th:href="@{'/list/jobs'(column=coreCompetency, value= ${job.coreCompetency})}"
+                       th:text="${job.coreCompetency}"></a></td>
             </tr>
+<!--            <tr><td><a th:href="@{/list}">test</a></td></tr>-->
         </table>
     </th:block>
 
