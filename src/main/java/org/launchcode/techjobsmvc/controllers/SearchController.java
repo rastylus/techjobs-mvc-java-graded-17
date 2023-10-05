@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 import static org.launchcode.techjobsmvc.controllers.ListController.columnChoices;
+import static org.launchcode.techjobsmvc.models.JobData.findByColumnAndValue;
+import static org.launchcode.techjobsmvc.models.JobData.getFieldValue;
 
 
 /**
@@ -27,8 +29,8 @@ public class SearchController {
 
     // TODO #3 - Create a handler to process a search request and render the updated search view.
     @PostMapping("results")
-//    @ResponseBody
-    public String displaySearchResults(Model model, String searchType, String searchTerm) {
+    public String displaySearchResults(Model model, @RequestParam String searchType,
+                                       @RequestParam String searchTerm) {
         String answer;
         model.addAttribute("searchType", searchType);
         model.addAttribute("searchTerm", searchTerm);
@@ -38,25 +40,17 @@ public class SearchController {
         ArrayList<Job> jobs;
 
             if (searchType.equals("all") || searchTerm.isEmpty()){
-                jobs = JobData.findAll();
-                model.addAttribute("title", "All Jobs");
+                jobs = JobData.findByValue(searchTerm);
+                model.addAttribute("title", "All Jobs" + ": " + searchTerm);
+                model.addAttribute("searchTerm", searchTerm);
+
             } else {
                 jobs = JobData.findByColumnAndValue(searchType, searchTerm);
                 model.addAttribute("title",
                         "Jobs with " + columnChoices.get(searchType) + ": " + searchTerm);
             }
+
             model.addAttribute("jobs", jobs);
-
-
-//        if(Objects.equals(searchType, "all")) {
-//            answer = "test";
-//        } else {
-//            answer = searchType;
-//        }
-
-
-
-//        return answer;
         return "search";
     }
 
