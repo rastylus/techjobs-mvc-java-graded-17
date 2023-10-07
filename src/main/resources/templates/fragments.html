@@ -41,25 +41,39 @@
             </tr>
             <tr>
                 <td class="labels">Employer</td>
-                <td><a th:href="@{'/list/jobs'(column=employer, value= ${job.employer})}"
-                       th:text="${job.employer}"></a></td>
+                <td th:text="${job.employer}"></td>
+<!--                <td><a th:href="@{'/list/jobs'(column=${column.key}, value= ${job.employer})}"-->
+<!--                       th:text="${job.employer}"></a></td>-->
+
             </tr>
             <tr>
                 <td class="labels">Location</td>
-                <td><a th:href="@{'/list/jobs'(column=location, value= ${job.location})}"
-                       th:text="${job.location}"></a></td>
+                <td th:text="${job.location}"></td>
+<!--                <td><a th:href="@{'/list/jobs'(column=location, value= ${job.location})}"-->
+<!--                       th:text="${job.location}"></a></td>-->
+
+<!--                http://localhost:8080/list/jobs?column=location&value=Kansas%20City-->
+
+
+<!--                list/jobs?column=location&value=South%20Florida-->
+<!--                http://localhost:8080/list/jobs?column=location&value=Kansas%20City-->
+<!--                http://localhost:8080/list/jobs?column=employer&value=LiveAnswer-->
+<!--                http://localhost:8080/list/jobs?column=location&value=Kansas%20City-->
+<!--                <a href="/order/details?id=3&amp;action=show_all">-->
+<!--                <a th:href="@{/order/details(id=3,action='show_all')}">-->
+
             </tr>
             <tr>
                 <td class="labels">Position Type</td>
-                <td><a
-                        th:href="@{'/list/jobs'(column=positionType, value= ${job.positionType})}"
-                       th:text="${job.positionType}"></a></td>
+                <td th:text="${job.positionType}"></td>
+<!--                <td><a th:href="@{'/list/jobs'(column=positionType, value= ${job.positionType})}"-->
+<!--                       th:text="${job.positionType}"></a></td>-->
             </tr>
             <tr>
                 <td class="labels">Core Competency</td>
-                <td><a
-                        th:href="@{'/list/jobs'(column=coreCompetency, value= ${job.coreCompetency})}"
-                       th:text="${job.coreCompetency}"></a></td>
+                <td th:text="${job.coreCompetency}"></td>
+<!--                <a th:href="@{'/list/jobs'(column=coreCompetency, value= ${job.coreCompetency})}">-->
+<!--                    <td th:text="${job.coreCompetency}"></td></a>-->
             </tr>
 <!--            <tr><td><a th:href="@{/list}">test</a></td></tr>-->
         </table>
